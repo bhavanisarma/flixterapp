@@ -23,15 +23,31 @@
         <a class="nav-link" href="#">See All Courses <span class="sr-only">(current)</span></a>
       </li>
     </ul>
-    <form class="form-inline my-2 my-lg-0"> 
-        <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Register</button> &nbsp;
-    </form>
+    <ul class="navbar-nav">
+  <% if member_signed_in? %>
+    <li class="nav-item">
+      <%= link_to 'Sign out', destroy_member_session_path, method: :delete, class: 'nav-link' %>
+    </li>
+  <% else %>
+    <li class="nav-item">
+      <%= link_to 'Sign in', new_member_session_path, class: 'nav-link' %>
+    </li>
+    <li class="nav-item">
+      <%= link_to 'Sign up', new_member_registration_path, class: 'nav-link' %>
+    </li>
+  <% end %>
+
+</ul>
   
-    <form class="form-inline my-2 my-lg-0"> 
-      <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Login</button>
-    </form>
+    
   </div>
 </nav>
+<% if notice.present? %>
+  <p class="alert alert-info"><%= notice %></p>
+<% end %>
+<% if alert.present? %>
+  <p class="alert alert-danger"><%= alert %></p>
+<% end %>
     <%= yield %> 
   </body>
 </html>
