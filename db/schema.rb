@@ -19,10 +19,10 @@ ActiveRecord::Schema.define(version: 2019_09_13_225100) do
     t.string "title"
     t.text "description"
     t.decimal "cost"
-    t.integer "user_id"
+    t.integer "member_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["user_id"], name: "index_courses_on_user_id"
+    t.index ["member_id"], name: "index_courses_on_member_id"
   end
 
   create_table "members", force: :cascade do |t|
