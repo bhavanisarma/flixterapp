@@ -4,6 +4,9 @@ class CoursesController < ApplicationController
 	end
 
 	def show
+		@section=Section.new
+		@lesson = Lesson.new 
 		@course = Course.find(params[:id])
+
 	end
 end
