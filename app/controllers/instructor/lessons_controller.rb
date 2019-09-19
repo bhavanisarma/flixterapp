@@ -17,9 +17,7 @@ class Instructor::LessonsController < ApplicationController
       		return render plain: 'Unauthorized', status: :unauthorized
     	end
   	end
-  	if current_section.course.member != current_member
-      		return render plain: 'Unauthorized', status: :unauthorized
-    end
+  	
 
   	helper_method :current_section
   	def current_section
