@@ -11,6 +11,36 @@
   </head>
 
   <body>
+     <script>
+    $(function(){
+      $('.row').sortable( {
+         update: function( event, ui ) {
+        $.ajax({
+          type: 'PUT',
+          url: ui.item.data('update-url'),
+          dataType: 'json',
+          data: { lesson: { row_order_position: ui.item.index() } }
+        }); 
+      }
+      });
+     $('.row').disableSelection();
+    });
+</script>
+ <script>
+    $(function(){
+      $('.col-12').sortable( {
+         update: function( event, ui ) {
+        $.ajax({
+          type: 'PUT',
+          url: ui.item.data('update-url'),
+          dataType: 'json',
+          data: { section: { row_order_position: ui.item.index() } }
+        }); 
+      }
+      });
+     $('.col-12').disableSelection();
+    });
+</script>
    
 
     <div id="flex-content-container">
